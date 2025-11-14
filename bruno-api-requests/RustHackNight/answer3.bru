@@ -1,0 +1,20 @@
+meta {
+  name: answer3
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://localhost:25565/order-pizza?name=Margherita
+  body: none
+  auth: inherit
+}
+
+params:query {
+  name: Margherita
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

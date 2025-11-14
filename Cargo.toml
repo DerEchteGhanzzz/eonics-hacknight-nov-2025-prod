@@ -1,0 +1,12 @@
+[package]
+name = "hacknight-nov-2025"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4"
+fs = "0.0.5"
+serde = "1.0.228"
+serde_json = "1.0.145"
+strum = "0.27.2"
+strum_macros = "0.27.2"
