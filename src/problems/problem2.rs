@@ -3,29 +3,35 @@ use serde_json;
 use crate::problems::parser;
 
 pub fn get_problem() -> String {
-    parser::read_file("./src/output_files/problem2.md")
+    parser::read_file("./src/output_files/problem1.md")
 }
 
 pub fn get_input() -> Vec<String> {
-    parser::lines_from_file("./src/input_files/input2.txt")
+    parser::lines_from_file("./src/input_files/input1.txt")
 }
 
 pub fn answer(answer: &str) -> bool {
-    todo!()
+    println!("Sent in: {}", answer);
+    let real_ans = solve();
+    println!("Actual:  {:?}", real_ans);
+    format!["{:?}", real_ans] == answer
 }
 
-pub fn solve() -> () {
-    todo!();
+pub fn solve() -> Vec<i32> {
+    let storage = get_input().iter().map(|i_str| Ingredient::from_str(i_str).unwrap()).collect::<Vec<Ingredient>>();
+    let menu = available_pizzas();
+    menu.iter().map(|pizza| count_occurrances(pizza, &storage)).collect::<Vec<_>>()
 }
 
-// pi z z = A
-// Okay, this is great. But... I've got another problem.
-// There is still a long long queue of people before I can get to your order.
-// You know what? If I could bake all pizzas at the same time, I could then immediately do yours too!
-// To make this much pizzas, we will need an enormous oven!
-//
-// Here, you can use our trademarked PiZZA formula:
-// If you consider the pizza constant Pi (Pi = 3), and you have a pizza of diameter Z, its area will be:
-// Pi * Z * Z = A
-// you can find the diameters of our sizes in the handle /sizes
-// and the order sheet in /orders
+fn count_occurrances(pizza: &PizzaName, storage: &Vec<Ingredient>) -> i32 {
+    let ingredients = pizza.ingredients();
+    let mut answer = ingredients.iter().map(|_| 0).collect::<Vec<_>>();
+    for ingredient in storage {
+        let idx = ingredients.iter().position(|x| x == ingredient);
+        if idx.is_none() {
+            continue;
+        }
+        answer[idx.unwrap()] += 1;
+    }
+    *answer.iter().min().unwrap()
+}

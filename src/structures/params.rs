@@ -3,7 +3,7 @@ use crate::structures::{ pizzas::PizzaName };
 
 #[derive(Debug, Deserialize)]
 pub struct OrderPizza {
-    pub name: PizzaName
+    pub pizza: PizzaName
 }
 
 #[derive(Debug, Deserialize)]
