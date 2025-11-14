@@ -9,7 +9,7 @@ names = [
     "NIXZ",
     "Cafe Seven",
     "Ponypark Slagharen",
-    "Binkhorst",
+    "Rusty Krab",
     "Koolmees, Wouter",
     "Pizzaria Tricolore",
     "Pakjesboot 12",

@@ -3,7 +3,7 @@ use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
 
 #[derive(Deserialize, EnumIter, Debug, PartialEq, Eq)]
-pub enum PizzaName {
+pub enum Pizza {
     Margherita,
     Pepperoni,
     MeatLovers,
@@ -15,18 +15,18 @@ pub enum PizzaName {
     TonnoEChipolla
 }
 
-impl PizzaName {
+impl Pizza {
     pub fn ingredients(&self) -> Vec<Ingredient>{
         match self {
-            PizzaName::Margherita        => vec![Ingredient::Sauce, Ingredient::Mozzerella],
-            PizzaName::Pepperoni         => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Pepperoni],
-            PizzaName::QuattroFromaggi   => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Gorgonzola, Ingredient::Parmesan, Ingredient::Fontina],
-            PizzaName::MeatLovers        => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Bacon, Ingredient::Pepperoni],
-            PizzaName::QuattroStagioni   => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Artichokes, Ingredient::Mushrooms, Ingredient::Mushrooms],
-            PizzaName::Hawaiian          => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Pineapple, Ingredient::Ham],
-            PizzaName::ProsciuttoEFunghi => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Ham, Ingredient::Mushrooms],
-            PizzaName::Spinaci           => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Spinach],
-            PizzaName::TonnoEChipolla    => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Tuna, Ingredient::Onion],
+            Pizza::Margherita        => vec![Ingredient::Sauce, Ingredient::Mozzerella],
+            Pizza::Pepperoni         => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Pepperoni],
+            Pizza::QuattroFromaggi   => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Gorgonzola, Ingredient::Parmesan, Ingredient::Fontina],
+            Pizza::MeatLovers        => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Bacon, Ingredient::Pepperoni],
+            Pizza::QuattroStagioni   => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Artichokes, Ingredient::Mushrooms, Ingredient::Mushrooms],
+            Pizza::Hawaiian          => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Pineapple, Ingredient::Ham],
+            Pizza::ProsciuttoEFunghi => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Ham, Ingredient::Mushrooms],
+            Pizza::Spinaci           => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Spinach],
+            Pizza::TonnoEChipolla    => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Tuna, Ingredient::Onion],
         }
     }
 }
@@ -74,8 +74,36 @@ impl Ingredient {
     }
 }
 
-pub fn available_pizzas() -> Vec<PizzaName> {
-    PizzaName::iter().collect()
+pub enum Size {
+    Small,
+    Medium,
+    Large,
+    American
+}
+
+impl Size {
+    pub fn size(&self) -> i32 {
+        match self {
+            Self::Small     => 25,
+            Self::Medium    => 29,
+            Self::Large     => 35,
+            Self::American  => 90
+        }
+    }
+
+    pub fn from_str(s: &str) -> Option<Size> {
+        match s {
+            "Small"     => Some(Size::Small),
+            "Medium"    => Some(Size::Medium),
+            "Large"     => Some(Size::Large),
+            "American"  => Some(Size::American),
+            _           => Option::None,
+        }
+    }
+}
+
+pub fn available_pizzas() -> Vec<Pizza> {
+    Pizza::iter().collect()
 }
 
 pub fn all_ingredients() -> Vec<Ingredient> {

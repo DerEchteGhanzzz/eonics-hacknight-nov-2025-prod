@@ -1,5 +1,5 @@
-from/to;Binkhorst;Binnenhof;Cafe Seven;De Transparante Broker;De Transparante Detective;Euromast;Koolmees, Wouter;NIXZ;Pakjesboot 12;Peter Jansen, Jan;Pizzaria Tricolore;Ponypark Slagharen
-Binkhorst;0;70;55;45;11;57;41;77;17;25;79;30
+from/to;Rusty Krab;Binnenhof;Cafe Seven;De Transparante Broker;De Transparante Detective;Euromast;Koolmees, Wouter;NIXZ;Pakjesboot 12;Peter Jansen, Jan;Pizzaria Tricolore;Ponypark Slagharen
+Rusty Krab;0;70;55;45;11;57;41;77;17;25;79;30
 Binnenhof;70;0;16;16;37;58;90;33;87;48;90;19
 Cafe Seven;55;16;0;69;88;31;81;46;99;29;32;82
 De Transparante Broker;45;16;69;0;18;30;45;73;76;68;98;48

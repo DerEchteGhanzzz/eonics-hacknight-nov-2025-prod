@@ -1,9 +1,9 @@
 use serde::Deserialize;
-use crate::structures::{ pizzas::PizzaName };
+use crate::structures::{ pizzas::Pizza };
 
 #[derive(Debug, Deserialize)]
 pub struct OrderPizza {
-    pub pizza: PizzaName
+    pub pizza: Pizza
 }
 
 #[derive(Debug, Deserialize)]
