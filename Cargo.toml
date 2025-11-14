@@ -6,7 +6,6 @@ edition = "2021"
 [dependencies]
 actix-web = "4"
 fs = "0.0.5"
-openssl = "0.10.75"
 serde = "1.0.228"
 serde_json = "1.0.145"
 strum = "0.27.2"
