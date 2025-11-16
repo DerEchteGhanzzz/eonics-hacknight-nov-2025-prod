@@ -1,5 +1,4 @@
-use crate::structures::pizzas::{Ingredient, Pizza, Size, available_pizzas};
-use serde_json;
+use crate::structures::pizzas::Size;
 use crate::problems::parser;
 use crate::controller::css::CSS;
 
@@ -49,23 +48,24 @@ pub fn solve() -> i32 {
 pub fn get_code() -> String {
     String::from(
         r#"
-        fn size_to_int(size: &String) {
-            match size {
-                "Small"    => 25,
-                "Medium"   => 29,
-                "Large"    => 35,
-                "American" => 90,
-                _          => panic!("Not a size!")
-            }
-        }
-
-        fn solve(sizes: Vec<String>) {
-            let pi = 3;
-            sizes().into_iter()
-                .map(|s| size_to_int(&s).unwrap().size())
-                .map(|z| pi * z * z).sum()
-        }
+        <code>
+        |fn size_to_int(size: &String) {
+        |   match size {
+        |       "Small"    => 25,
+        |       "Medium"   => 29,
+        |       "Large"    => 35,
+        |       "American" => 90,
+        |       _          => panic!("Not a size!")
+        |   }
+        |}
+        |
+        |fn solve(sizes: Vec<String>) {
+        |    let pi = 3;
+        |    sizes().into_iter()
+        |        .map(|s| size_to_int(&s).unwrap().size())
+        |        .map(|z| pi * z * z).sum()
+        |}
+        </code>
         "#
     )
 }
-

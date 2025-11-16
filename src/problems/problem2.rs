@@ -60,22 +60,22 @@ pub fn get_code() -> String {
     String::from(
         r#"
         <code>
-        pub fn solve(menu: Vec<String>, ingredients: Vec<Vec<String>>, storage: Vec<String>) -> Vec<i32> {
-            menu.iter().enumerate().map(|idx, pizza| count_occurrances(&pizza, &ingredients[idx], &storage))
-                .collect::<Vec<_>>()
-        }
-
-        fn count_occurrances(pizza: &String, ingredients: &Vec<String>, storage: &Vec<String>) -> i32 {
-            let mut answer = ingredients.iter().map(|_| 0).collect::<Vec<_>>();
-            for ingredient in storage {
-                let idx = ingredients.iter().position(|x| x == ingredient);
-                if idx.is_none() {
-                    continue;
-                }
-                answer[idx.unwrap()] += 1;
-            }
-            *answer.iter().min().unwrap()
-        }
+        |pub fn solve(menu: Vec<String>, ingredients: Vec<Vec<String>>, storage: Vec<String>) -> Vec<i32> {
+        |    menu.iter().enumerate().map(|idx, pizza| count_occurrances(&pizza, &ingredients[idx], &storage))
+        |        .collect::<Vec<_>>()
+        |}
+        |
+        |fn count_occurrances(pizza: &String, ingredients: &Vec<String>, storage: &Vec<String>) -> i32 {
+        |    let mut answer = ingredients.iter().map(|_| 0).collect::<Vec<_>>();
+        |    for ingredient in storage {
+        |        let idx = ingredients.iter().position(|x| x == ingredient);
+        |        if idx.is_none() {
+        |            continue;
+        |        }
+        |        answer[idx.unwrap()] += 1;
+        |    }
+        |    *answer.iter().min().unwrap()
+        |}
         </code>
         "#
     )

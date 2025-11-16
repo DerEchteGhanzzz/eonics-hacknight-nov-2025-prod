@@ -1,6 +1,5 @@
 use actix_web::{get, web, HttpRequest, HttpResponse, Responder};
 use crate::{controller::css::CSS, structures::{params::{Answer, OrderPizza}, pizzas::available_pizzas}};
-use crate::problems::{problem2, problem1, problem3};
 
 fn order_error() -> String {
     String::from(
@@ -11,16 +10,6 @@ fn order_error() -> String {
                 params:<br/>
                 <b>pizza</b>: Name of pizza<br/>
                 check <a href="/menu">/menu</a> for available pizzas.
-            </p>
-        "#
-    )
-}
-
-fn wrong_answer() -> String {
-    String::from(
-        r#"
-            <p>
-                Okay... nicely done... erm... Only, I don't that's right, could you try looking at it again?
             </p>
         "#
     )
@@ -99,126 +88,3 @@ pub async fn get_ingredients(req: HttpRequest) -> impl Responder {
     HttpResponse::Ok().body(format!("{:?}", order.ingredients()))
 }
 
-#[get("/problem1")]
-pub async fn get_problem1() -> impl Responder {
-    HttpResponse::Ok().body(format!("{}", problem1::get_problem()))
-}
-
-#[get("/input1")]
-pub async fn get_input1() -> impl Responder {
-    HttpResponse::Ok().body(format!("{}", problem1::get_input()))
-}
-
-#[get("/solve1")]
-pub async fn solve1(req: HttpRequest) -> impl Responder {
-    let request = web::Query::<Answer>::from_query(req.query_string());
-    if request.is_ok() && problem1::answer(&request.unwrap().answer) {
-        return HttpResponse::Ok().body(format!(
-            r#"{}
-            <body>
-                <h2>
-                    Perfect! I think we might be able to fit them all!<br/>
-                    Okay, while I go an do that, could you maybe look at <a href="/problem2">problem 2</a>?
-                </h2>
-            </body>"#,
-            CSS
-        ));
-    }
-    HttpResponse::BadRequest().body(format!("{}{}", CSS, wrong_answer()))
-}
-
-#[get("/answer1")]
-pub async fn answer1() -> impl Responder {
-    HttpResponse::Ok().body(format!("{}", problem1::solve()))
-}
-
-#[get("/code1")]
-pub async fn code1() -> impl Responder {
-    HttpResponse::Ok().body(format!("
-        {}
-        <body>
-        {}
-        </body>
-        ", CSS, problem1::get_code().replace("\n", "<br/>"))
-    )
-}
-
-#[get("/problem2")]
-pub async fn get_problem2() -> impl Responder {
-    HttpResponse::Ok().body(format!("{}", problem2::get_problem()))
-}
-
-#[get("/input2")]
-pub async fn get_input2() -> impl Responder {
-    HttpResponse::Ok().body(format!("{}", problem2::get_input()))
-}
-
-#[get("/solve2")]
-pub async fn solve2(req: HttpRequest) -> impl Responder {
-    let request = web::Query::<Answer>::from_query(req.query_string());
-    if request.is_ok() && problem2::answer(&request.unwrap().answer) {
-        return HttpResponse::Ok().body(format!(
-            r#"{}
-            <body>
-                <h2>
-                    Alright, that's a lot of pizza! I think we'll be good for now.<br/>
-                    We only have one more <a href="/problem3">issue</a>, can you handle this one?<br/>
-                    Because some have told me this one is <a href="https://en.wikipedia.org/wiki/NP-hardness"><b>Notoriously Pretty Hard</b></a>?
-                <h2>
-            </body>"#,
-            CSS
-        ));
-    }
-    HttpResponse::BadRequest().body(format!("{}{}", CSS, wrong_answer()))
-}
-
-#[get("/answer2")]
-pub async fn answer2() -> impl Responder {
-    HttpResponse::Ok().body(format!("{:?}", problem2::solve()))
-}
-
-#[get("/code2")]
-pub async fn code2() -> impl Responder {
-    HttpResponse::Ok().body(format!("
-        {}
-        <body>
-        {}
-        </body>
-        ", CSS, problem2::get_code().replace("\n", "<br/>"))
-    )
-}
-
-#[get("/problem3")]
-pub async fn get_problem3() -> impl Responder {
-    HttpResponse::Ok().body(format!("{}", problem3::get_problem()))
-}
-
-#[get("/input3")]
-pub async fn get_input3() -> impl Responder {
-    HttpResponse::Ok().body(format!("{}", problem3::get_input()))
-}
-
-#[get("/solve3")]
-pub async fn solve3(req: HttpRequest) -> impl Responder {
-    let request = web::Query::<Answer>::from_query(req.query_string());
-    if request.is_ok() && problem3::answer(&request.unwrap().answer) {
-        return HttpResponse::Ok().body(format!("Very well. I'll send him on his way and he'll be with you shortly!"));
-    }
-    HttpResponse::BadRequest().body("Okay... nicely done... erm... Only, I don't that's right, could you try looking at it again?")
-}
-
-#[get("/answer3")]
-pub async fn answer3() -> impl Responder {
-    HttpResponse::Ok().body(format!("{:?}", problem3::solve()))
-}
-
-#[get("/code3")]
-pub async fn code3() -> impl Responder {
-    HttpResponse::Ok().body(format!("
-        {}
-        <body>
-        {}
-        </body>
-        ", CSS, problem3::get_code().replace("\n", "<br/>"))
-    )
-}

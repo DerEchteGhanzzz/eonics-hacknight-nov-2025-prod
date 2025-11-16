@@ -98,7 +98,7 @@ pub fn get_code() -> String {
     String::from(
     r#"<code>
         pub fn solve(d: HashMap<String, HashMap<String, i32>>) {
-            tsp(vec![d.keys().next().unwrap()], &d, 0, min_span_tree(&d) * 2)
+        |   tsp(vec![d.keys().next().unwrap()], &d, 0, min_span_tree(&d) * 2)
         }
 
         fn min_span_tree(d: &HashMap<String, HashMap<String, i32>>) -> i32 {
