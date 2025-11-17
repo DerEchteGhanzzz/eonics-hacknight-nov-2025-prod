@@ -57,7 +57,6 @@ fn min_span_tree(d: &Vec<Vec<i32>>) -> i32 {
     let mut ub = 0;
     edges.sort();
     for (dist, from, to) in edges {
-        println!("{dist} {from} {to}");
         if visited.contains(&from) && visited.contains(&to) {
             continue;
         }
@@ -67,7 +66,6 @@ fn min_span_tree(d: &Vec<Vec<i32>>) -> i32 {
         if !visited.contains(&to) {
             visited.push(to);
         }
-        println!("{ub}");
         ub += dist;
     }
     ub
