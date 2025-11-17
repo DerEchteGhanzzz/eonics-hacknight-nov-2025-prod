@@ -1,5 +1,6 @@
 use actix_web::{get, web, HttpRequest, HttpResponse, Responder};
-use crate::{controller::css::CSS, structures::{params::{Answer, OrderPizza}, pizzas::available_pizzas}};
+use serde_json::to_string;
+use crate::{controller::css::CSS, structures::{params::OrderPizza, pizzas::available_pizzas}};
 
 fn order_error() -> String {
     String::from(
@@ -54,7 +55,7 @@ pub async fn open() -> impl Responder {
 
 #[get("/menu")]
 pub async fn menu() -> impl Responder {
-    HttpResponse::Ok().body(format!("{:?}", available_pizzas()))
+    HttpResponse::Ok().body(available_pizzas().iter().map(|p| format!("{:?}", p)).collect::<Vec<_>>().join("\n"))
 }
 
 #[get("/order-pizza")]
@@ -85,6 +86,6 @@ pub async fn get_ingredients(req: HttpRequest) -> impl Responder {
         return HttpResponse::BadRequest().body(format!("{}{}", CSS, order_error()));
     }
     let order = &request.unwrap().pizza;
-    HttpResponse::Ok().body(format!("{:?}", order.ingredients()))
+    HttpResponse::Ok().body(order.ingredients().iter().map(|p| format!("{:?}", p)).collect::<Vec<_>>().join("\n"))
 }
 

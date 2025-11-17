@@ -34,7 +34,9 @@ pub fn get_input_lines() -> Vec<String> {
 }
 
 pub fn answer(answer: &str) -> bool {
-    answer == format!("{}", solve())
+    let true_answer = solve();
+    println!("Problem 1: ours: {}, theirs: {}", true_answer, answer);
+    answer == format!("{}", true_answer)
 }
 
 pub fn solve() -> i32 {

@@ -1,42 +1,40 @@
 use crate::problems::problem2;
-use actix_web::{get, web, HttpRequest, HttpResponse, Responder};
-use crate::{controller::css::CSS, structures::params::Answer};
+use actix_web::{get, post, web, HttpRequest, HttpResponse, Responder};
+use crate::{controller::{css::CSS, receiver}, structures::params::Answer};
 
-#[get("/problem2")]
+#[get("/problem2/definition")]
 pub async fn get_problem() -> impl Responder {
     HttpResponse::Ok().body(format!("{}", problem2::get_problem()))
 }
 
-#[get("/input2")]
+#[get("/problem2/input")]
 pub async fn get_input() -> impl Responder {
     HttpResponse::Ok().body(format!("{}", problem2::get_input()))
 }
 
-#[get("/solve2")]
-pub async fn solve(req: HttpRequest) -> impl Responder {
-    let request = web::Query::<Answer>::from_query(req.query_string());
-    if request.is_ok() && problem2::answer(&request.unwrap().answer) {
+#[post("/problem2/solve")]
+pub async fn solve(payload: web::Payload) -> impl Responder {
+    println!("Here");
+    let body = receiver::handle_post::<Vec<i32>>(payload).await;
+    if body.is_err() {
+        println!("{:?}", body);
+        return HttpResponse::NotAcceptable().body(format!("{:?}", body));
+    }
+    println!("{:?}", body);
+    if problem2::answer(&format!("{:?}", body.unwrap())) {
         return HttpResponse::Ok().body(format!(
-            r#"{}
-            <body>
-                <h2>
-                    Alright, that's a lot of pizza! I think we'll be good for now.<br/>
-                    We only have one more <a href="/problem3">issue</a>, can you handle this one?<br/>
-                    Because some have told me this one is <a href="https://en.wikipedia.org/wiki/NP-hardness"><b>Notoriously Pretty Hard</b></a>?
-                <h2>
-            </body>"#,
-            CSS
+            "Success!"
         ));
     }
-    HttpResponse::BadRequest().body(format!("{}{}", CSS, wrong_answer()))
+    HttpResponse::BadRequest().body(format!("{}", wrong_answer()))
 }
 
-#[get("/answer2")]
+#[get("/problem2/answer")]
 pub async fn answer() -> impl Responder {
     HttpResponse::Ok().body(format!("{:?}", problem2::solve()))
 }
 
-#[get("/code2")]
+#[get("/problem2/code")]
 pub async fn code() -> impl Responder {
     HttpResponse::Ok().body(format!("
         {}
@@ -49,12 +47,6 @@ pub async fn code() -> impl Responder {
 
 fn wrong_answer() -> String {
     String::from(
-        r#"
-            <p>
-                <b>Wrong Answer</b>
-                Are you sure that is right? I think you're missing something.<br/>
-                remember you need to give back a formatted list please: [0, 0, 0, 0, 0]
-            </p>
-        "#
+        "Wrong Answer, please try again"
     )
 }

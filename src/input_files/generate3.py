@@ -39,8 +39,8 @@ def populate_dist_matrix():
         for t, val in sorted(d[s].items()):
             line += ";" + str(val)
         lines.append(line)
-    with open("src/input_files/input3.txt", 'w') as f:
-        f.writelines("\n".join(lines))
+    with open("src/input_files/input3.txt", 'w', newline='') as f:
+        f.write("\n".join(lines))
 
 def tsp(visited: list[str]):
     if len(visited) == len(names):
@@ -71,5 +71,6 @@ def read_input():
     return d
     
 if __name__ == "__main__":
+    populate_dist_matrix()
     d = read_input()
     print(tsp(visited=[list(d.keys())[0]]))

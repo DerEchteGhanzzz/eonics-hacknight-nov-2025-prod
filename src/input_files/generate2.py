@@ -25,5 +25,5 @@ if __name__ == "__main__":
     for _ in range(1000):
         result.append(random.choice(ingredients))
 
-    with open("src/input_files/input2.txt", "w") as f:
-        f.writelines("\n".join(result))
+    with open("src/input_files/input2.txt", "w", newline='') as f:
+        f.write("\n".join(result))

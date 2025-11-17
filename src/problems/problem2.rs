@@ -31,9 +31,8 @@ pub fn get_input_lines() -> Vec<String> {
 }
 
 pub fn answer(answer: &str) -> bool {
-    println!("Sent in: {}", answer);
     let real_ans = solve();
-    println!("Actual:  {:?}", real_ans);
+    println!("Problem 2: ours {real_ans:?}, theirs: {answer}");
     format!["{:?}", real_ans] == answer
 }
 
