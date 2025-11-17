@@ -1,6 +1,6 @@
 use crate::problems::problem2;
-use actix_web::{get, post, web, HttpRequest, HttpResponse, Responder};
-use crate::{controller::{css::CSS, receiver}, structures::params::Answer};
+use actix_web::{get, post, web, HttpResponse, Responder};
+use crate::{controller::{css::CSS, receiver}};
 
 #[get("/problem2/definition")]
 pub async fn get_problem() -> impl Responder {

@@ -22,7 +22,7 @@ impl Pizza {
             Pizza::Pepperoni         => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Pepperoni],
             Pizza::QuattroFromaggi   => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Gorgonzola, Ingredient::Parmesan, Ingredient::Fontina],
             Pizza::MeatLovers        => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Bacon, Ingredient::Pepperoni],
-            Pizza::QuattroStagioni   => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Artichokes, Ingredient::Mushrooms, Ingredient::Mushrooms],
+            Pizza::QuattroStagioni   => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Artichokes, Ingredient::Mushrooms],
             Pizza::Hawaiian          => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Pineapple, Ingredient::Ham],
             Pizza::ProsciuttoEFunghi => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Ham, Ingredient::Mushrooms],
             Pizza::Spinaci           => vec![Ingredient::Sauce, Ingredient::Mozzerella, Ingredient::Spinach],
@@ -104,8 +104,4 @@ impl Size {
 
 pub fn available_pizzas() -> Vec<Pizza> {
     Pizza::iter().collect()
-}
-
-pub fn all_ingredients() -> Vec<Ingredient> {
-    Ingredient::iter().collect()
 }

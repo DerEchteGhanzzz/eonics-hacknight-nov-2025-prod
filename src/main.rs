@@ -1,8 +1,9 @@
 use std::io;
 use actix_web::{App, HttpServer};
+
+use crate::problems::parser;
 mod structures;
 mod controller;
-mod presentation;
 mod problems;
 // use openssl::ssl::{SslAcceptor, SslFiletype, SslMethod};
 
@@ -13,6 +14,13 @@ async fn main() -> io::Result<()> {
     //     .set_private_key_file("key.pem", SslFiletype::PEM)
     //     .unwrap();
     // builder.set_certificate_chain_file("cert.pem").unwrap();
+    let answer1 = problems::problem1::solve();
+    let answer2 = problems::problem2::solve();
+    let answer3 = problems::problem3::solve();
+
+    parser::write_file("./src/output_files/answer1.txt", &format!("{answer1}"));
+    parser::write_file("./src/output_files/answer2.txt", &format!("{answer2:?}"));
+    parser::write_file("./src/output_files/answer3.txt", &format!("{answer3}"));
 
     HttpServer::new(|| App::new()
     .service(controller::pizza_place::index)

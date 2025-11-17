@@ -31,9 +31,9 @@ pub fn get_input_lines() -> Vec<String> {
 }
 
 pub fn answer(answer: &str) -> bool {
-    let real_ans = solve();
-    println!("Problem 2: ours {real_ans:?}, theirs: {answer}");
-    format!["{:?}", real_ans] == answer
+    let true_answer = parser::read_file("./src/output_files/answer2.txt");
+    println!("Problem 2: ours {true_answer}, theirs: {answer}");
+    true_answer == answer
 }
 
 pub fn solve() -> Vec<i32> {

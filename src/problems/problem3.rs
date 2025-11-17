@@ -1,4 +1,4 @@
-use std::{collections::{HashMap, HashSet}, i32};
+use std::i32;
 use crate::controller::css::CSS;
 use crate::problems::parser;
 
@@ -28,18 +28,15 @@ pub fn get_input_lines() -> Vec<String> {
 }
 
 pub fn answer(answer: &str) -> bool {
-    let res = i32::from_str_radix(answer, 10);
-    if res.is_err() {
-        return false;
-    }
-    let true_answer = solve();
+    let res = answer;
+    let true_answer = parser::read_file("./src/output_files/answer3.txt");
     println!("Problem 3: ours {} == theirs {}", true_answer, answer);
-    res.unwrap() == true_answer
+    res == true_answer
 }
 
 pub fn solve() -> i32 {
     let mut d_raw = get_input_lines().into_iter();
-    let mut d = d_raw.next().unwrap().split(";").skip(1).map(|_| 
+    let d = d_raw.next().unwrap().split(";").skip(1).map(|_| 
         d_raw.next().unwrap().split(";").skip(1).map(|i| i32::from_str_radix(i, 10).unwrap()).collect::<Vec<_>>()
     ).collect::<Vec<Vec<_>>>();
     tsp(vec![0], &d, 0, min_span_tree(&d) * 2)
@@ -73,6 +70,7 @@ fn min_span_tree(d: &Vec<Vec<i32>>) -> i32 {
 
 fn tsp(visited: Vec<usize>, d: &Vec<Vec<i32>>, current: i32, ub: i32) -> i32 {
     if visited.len() == d.len() {
+        // println!("cur {current}, ub {ub}");
         return current + d[*visited.last().unwrap()][*visited.first().unwrap()];
     }
     let mut best = i32::MAX;

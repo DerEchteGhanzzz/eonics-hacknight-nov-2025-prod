@@ -1,6 +1,6 @@
 use crate::problems;
-use actix_web::{get, post, web, HttpRequest, HttpResponse, Responder};
-use crate::{controller::css::CSS, structures::params::Answer};
+use actix_web::{get, post, web, HttpResponse, Responder};
+use crate::controller::css::CSS;
 use crate::controller::receiver;
 
 #[get("/problem1/definition")]

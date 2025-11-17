@@ -14,7 +14,8 @@ names = [
     "Pizzaria Tricolore",
     "Pakjesboot 12",
     "Euromast",
-    "Binnenhof"
+    "Binnenhof",
+    "Kasteel de Haar"
 ]
 
 d = {}
@@ -72,5 +73,3 @@ def read_input():
     
 if __name__ == "__main__":
     populate_dist_matrix()
-    d = read_input()
-    print(tsp(visited=[list(d.keys())[0]]))

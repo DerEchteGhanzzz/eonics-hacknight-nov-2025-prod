@@ -6,6 +6,11 @@ if __name__ == "__main__":
         "Sauce",
         "Mozzerella",
         "Pepperoni",
+        "Sauce",
+        "Mozzerella",
+        "Pepperoni",
+        "Sauce",
+        "Mozzerella",
         "Gorgonzola",
         "Fontina",
         "Parmesan",
@@ -17,7 +22,7 @@ if __name__ == "__main__":
         "Spinach",
         "Tuna",
         "Onion",
-        "Bacon"
+        "Bacon",
     ]
 
     print(os.getcwd())

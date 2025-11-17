@@ -1,5 +1,4 @@
 use actix_web::{get, web, HttpRequest, HttpResponse, Responder};
-use serde_json::to_string;
 use crate::{controller::css::CSS, structures::{params::OrderPizza, pizzas::available_pizzas}};
 
 fn order_error() -> String {

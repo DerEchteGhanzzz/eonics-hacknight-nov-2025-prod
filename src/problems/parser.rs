@@ -1,8 +1,7 @@
 use std::{
     fs::File,
     io::{prelude::*, BufReader},
-    path::Path,
-    env,
+    path::Path
 };
 
 // The output is wrapped in a Result to allow matching on errors.
@@ -20,4 +19,9 @@ pub fn read_file(filename: &str) -> String {
     let mut contents = String::new();
     file.read_to_string(&mut contents).unwrap();
     contents
+}
+
+pub fn write_file(filename: &str, buf: &str) -> () {
+    let mut file = File::create(filename).unwrap();
+    file.write(buf.as_bytes()).unwrap();
 }
