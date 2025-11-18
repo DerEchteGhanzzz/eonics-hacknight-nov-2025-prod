@@ -23,7 +23,7 @@ pub async fn index() -> impl Responder {
         <body>
             <div>
                 <h1>
-                    Welcome to the Rusty Krab, we're <a href="./open">open</a>, may I take your order please?
+                    Welcome to the Rusty Krab, we're <a href="./open">open</a>, may I take your <a href="/order-pizza">order</a> please?
                 </h1>
                 <img src="https://media1.tenor.com/m/-lohISybXxoAAAAd/spongebob-the-krusty-krab-pizza.gif"/>
                 <img src="https://rustacean.net/assets/rustacean-flat-happy.png"/>
@@ -45,7 +45,7 @@ pub async fn open() -> impl Responder {
                 We're open! Come in! Check our menu via 
                 <a href="./menu">/menu</a>, and check 
                 <a href="./ingredients">ingredients</a> for what each pizza contains.
-                To order a pizza, you can call <a href="./order-pizza">/order-pizza</a> with your pizza of choice from the menu.
+                To order a pizza, you can click <a href="./order-pizza">here</a> with your pizza of choice from the menu.
             </h2>
         </body>
         "#
@@ -58,24 +58,19 @@ pub async fn menu() -> impl Responder {
 }
 
 #[get("/order-pizza")]
-pub async fn order_pizza(req: HttpRequest) -> impl Responder {
-    let request = web::Query::<OrderPizza>::from_query(req.query_string());
-    if request.is_err() {
-        return HttpResponse::BadRequest().body(format!("{}{}", CSS, order_error()));
-    }
-    let order = &request.unwrap().pizza;
+pub async fn order_pizza() -> impl Responder {
     HttpResponse::Ok().body(format!(r#"
         {}
         <body>
             <h2>
                 Yea... About that... You see, there are currently a lot of events taking place... 
-                So, it might take a while for you to get your {:?}... 
+                So, it might take a while for you to get your pizza...
                 Actually, you might be able to help me!
-                If you solve my 3 problems, I'll give you your pizza for free!<br/>
-                You can find the first problem via <a href="/problem1">/problem1<a>
+                If you can help me with my 3 problems I'll give you your pizza for free.<br/>
+                You can find the first problem via <a href="/problem1/definition">/problem1<a>
             </h2>
         </body>
-        "#, CSS, order))
+        "#, CSS))
 }
 
 #[get("/ingredients")]

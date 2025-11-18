@@ -39,14 +39,15 @@ async fn main() -> io::Result<()> {
     .service(controller::problem2::answer)
     .service(controller::problem2::code)
     .service(controller::problem3::get_problem)
-    .service(controller::problem3::get_input)
+    .service(controller::problem3::get_from_to)
+    .service(controller::problem3::get_locations)
     .service(controller::problem3::solve)
     .service(controller::problem3::answer)
     .service(controller::problem3::code)
     )
         // .bind_openssl("192.168.178.253:80", builder)?
-        // .bind("192.168.178.253:80")?
-        .bind("localhost:80")?
+        .bind("192.168.178.253:80")?
+        // .bind("localhost:80")?
         .run()
         .await
 }

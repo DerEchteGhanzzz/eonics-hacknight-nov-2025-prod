@@ -16,8 +16,9 @@ pub fn get_problem() -> String {
                 If you consider the Pizza Constant Pi (Pi = 3), and you have a pizza of diameter Z, its area A will be:<br/>
                 Pi * Z * Z = A<br/>
                 The sizes are Small z=25, Medium z=29, Large z=35, American z=90<br/>
-                Please calculate the area we'd need to bake all pizzas at once by summing up the areas of all pizzas.
-                The pizzas we still need to bake can be found in the <a href="/input1">order sheet</a><br/>
+                To get started, please calculate <u>the sum over all pizza areas</u> using the PiZZA formula.</br>
+                Don't worry about any <a href="https://en.wikipedia.org/wiki/Packing_problems">spacing problems</a>, we are very efficient.</br>  
+                The pizzas we still need to bake can be found in the <a href="/problem1/input">order sheet</a><br/>
             </h2>
         </body>
         "#,

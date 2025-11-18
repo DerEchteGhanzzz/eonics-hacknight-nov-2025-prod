@@ -7,8 +7,14 @@ pub async fn get_problem() -> impl Responder {
     HttpResponse::Ok().body(format!("{}", problem3::get_problem()))
 }
 
-#[get("/problem3/input")]
-pub async fn get_input() -> impl Responder {
+
+#[get("/problem3/locations")]
+pub async fn get_locations() -> impl Responder {
+    HttpResponse::Ok().body(format!("{}", problem3::get_input()))
+}
+
+#[get("/problem3/from-to")]
+pub async fn get_from_to() -> impl Responder {
     HttpResponse::Ok().body(format!("{}", problem3::get_input()))
 }
 
