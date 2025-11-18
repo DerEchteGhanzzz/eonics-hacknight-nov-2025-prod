@@ -12,9 +12,10 @@ pub fn get_problem() -> String {
                 Of course, we still need to bring the pizzas over to all of our clients.<br/>
                 However, to do this as quick as possible, we will need to find some sort of schedule to do that!<br/>
                 And, if we have that schedule, we also need to indicate how long it will take as well.<br/>
-                Luckily, we can provide you with an <a href="/input">overview</a> of the travel times between each pair of locations we'll need to visit!<br/>
-                Please give the minimum travel time for our courrier to visit every location and come back here again.<br/>
-                You might
+                Luckily, we can provide you with an <a href="/locations">overview</a> of the destinations we'll need to visit<br/>
+                To get the travel times, you can use our <a href="/from-to">Applied Pizza Interface</a> to get the travel times between two locations.
+                Calculate the minimum travel time for our courrier to visit every location and come back here again.<br/>
+                You might want to consider some good optimizations, because I heard this problem is <a href="https://en.wikipedia.org/wiki/NP-hardness">Notoriously Pretty Hard</a>
             </h2>
         </body>
         "#,
