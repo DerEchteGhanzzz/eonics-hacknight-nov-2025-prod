@@ -1,4 +1,3 @@
-use std::i32;
 use crate::controller::css::CSS;
 use crate::problems::parser;
 
@@ -23,12 +22,20 @@ pub fn get_problem() -> String {
     )
 }
 
-pub fn get_input() -> String {
-    parser::read_file("./src/input_files/input3.txt")
+pub fn get_locations() -> String {
+    parser::read_file("./src/input_files/locations.txt")
 }
 
-pub fn get_input_lines() -> Vec<String> {
-    parser::lines_from_file("./src/input_files/input3.txt")
+pub fn get_from_to(from: &str, to: &str) -> Option<u32> {
+    parser::lines_from_file("./src/input_files/from-to.txt").into_iter().find_map(|line| {
+        let mut split = line.split(";");
+        let s = split.next().unwrap();
+        let t = split.next().unwrap();
+        if s == from && t == to {
+            return Some(u32::from_str_radix(split.next().unwrap(), 10).unwrap());
+        }
+        Option::None
+    })
 }
 
 pub fn answer(answer: &str) -> bool {
@@ -38,15 +45,15 @@ pub fn answer(answer: &str) -> bool {
     res == true_answer
 }
 
-pub fn solve() -> i32 {
-    let mut d_raw = get_input_lines().into_iter();
-    let d = d_raw.next().unwrap().split(";").skip(1).map(|_| 
-        d_raw.next().unwrap().split(";").skip(1).map(|i| i32::from_str_radix(i, 10).unwrap()).collect::<Vec<_>>()
-    ).collect::<Vec<Vec<_>>>();
+pub fn solve() -> u32 {
+    let locations = get_locations().split("\n").map(|s| String::from(s)).collect::<Vec<_>>();
+    let d = locations.iter().map(
+        |from| locations.iter().map(|to| get_from_to(from, to).unwrap()).collect::<Vec<_>>()
+    ).collect::<Vec<_>>();
     tsp(vec![0], &d, 0, min_span_tree(&d) * 2)
 }
 
-fn min_span_tree(d: &Vec<Vec<i32>>) -> i32 {
+fn min_span_tree(d: &Vec<Vec<u32>>) -> u32 {
     let mut edges = vec![];
     for i in (0..d.len()).rev() {
         for j in (i + 1..d.len()).rev() {
@@ -72,12 +79,12 @@ fn min_span_tree(d: &Vec<Vec<i32>>) -> i32 {
     ub
 }
 
-fn tsp(visited: Vec<usize>, d: &Vec<Vec<i32>>, current: i32, ub: i32) -> i32 {
+fn tsp(visited: Vec<usize>, d: &Vec<Vec<u32>>, current: u32, ub: u32) -> u32 {
     if visited.len() == d.len() {
         // println!("cur {current}, ub {ub}");
         return current + d[*visited.last().unwrap()][*visited.first().unwrap()];
     }
-    let mut best = i32::MAX;
+    let mut best = u32::MAX;
     if current > ub {
         return best;
     }

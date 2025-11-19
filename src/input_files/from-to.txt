@@ -1,0 +1,169 @@
+Binnenhof;Binnenhof;0
+Binnenhof;Cafe Seven;36
+Binnenhof;De Transparante Broker;10
+Binnenhof;De Transparante Detective;15
+Binnenhof;Euromast;94
+Binnenhof;Kasteel de Haar;31
+Binnenhof;Koolmees, Wouter;95
+Binnenhof;NIXZ;71
+Binnenhof;Pakjesboot 12;20
+Binnenhof;Peter Jansen, Jan;52
+Binnenhof;Pizzaria Tricolore;14
+Binnenhof;Ponypark Slagharen;60
+Binnenhof;Rusty Krab;91
+Cafe Seven;Binnenhof;36
+Cafe Seven;Cafe Seven;0
+Cafe Seven;De Transparante Broker;27
+Cafe Seven;De Transparante Detective;86
+Cafe Seven;Euromast;71
+Cafe Seven;Kasteel de Haar;87
+Cafe Seven;Koolmees, Wouter;49
+Cafe Seven;NIXZ;95
+Cafe Seven;Pakjesboot 12;76
+Cafe Seven;Peter Jansen, Jan;62
+Cafe Seven;Pizzaria Tricolore;53
+Cafe Seven;Ponypark Slagharen;70
+Cafe Seven;Rusty Krab;14
+De Transparante Broker;Binnenhof;10
+De Transparante Broker;Cafe Seven;27
+De Transparante Broker;De Transparante Broker;0
+De Transparante Broker;De Transparante Detective;16
+De Transparante Broker;Euromast;30
+De Transparante Broker;Kasteel de Haar;65
+De Transparante Broker;Koolmees, Wouter;52
+De Transparante Broker;NIXZ;30
+De Transparante Broker;Pakjesboot 12;41
+De Transparante Broker;Peter Jansen, Jan;16
+De Transparante Broker;Pizzaria Tricolore;99
+De Transparante Broker;Ponypark Slagharen;53
+De Transparante Broker;Rusty Krab;81
+De Transparante Detective;Binnenhof;15
+De Transparante Detective;Cafe Seven;86
+De Transparante Detective;De Transparante Broker;16
+De Transparante Detective;De Transparante Detective;0
+De Transparante Detective;Euromast;23
+De Transparante Detective;Kasteel de Haar;21
+De Transparante Detective;Koolmees, Wouter;10
+De Transparante Detective;NIXZ;21
+De Transparante Detective;Pakjesboot 12;67
+De Transparante Detective;Peter Jansen, Jan;44
+De Transparante Detective;Pizzaria Tricolore;50
+De Transparante Detective;Ponypark Slagharen;58
+De Transparante Detective;Rusty Krab;18
+Euromast;Binnenhof;94
+Euromast;Cafe Seven;71
+Euromast;De Transparante Broker;30
+Euromast;De Transparante Detective;23
+Euromast;Euromast;0
+Euromast;Kasteel de Haar;43
+Euromast;Koolmees, Wouter;76
+Euromast;NIXZ;83
+Euromast;Pakjesboot 12;33
+Euromast;Peter Jansen, Jan;81
+Euromast;Pizzaria Tricolore;75
+Euromast;Ponypark Slagharen;11
+Euromast;Rusty Krab;78
+Kasteel de Haar;Binnenhof;31
+Kasteel de Haar;Cafe Seven;87
+Kasteel de Haar;De Transparante Broker;65
+Kasteel de Haar;De Transparante Detective;21
+Kasteel de Haar;Euromast;43
+Kasteel de Haar;Kasteel de Haar;0
+Kasteel de Haar;Koolmees, Wouter;63
+Kasteel de Haar;NIXZ;43
+Kasteel de Haar;Pakjesboot 12;72
+Kasteel de Haar;Peter Jansen, Jan;53
+Kasteel de Haar;Pizzaria Tricolore;92
+Kasteel de Haar;Ponypark Slagharen;92
+Kasteel de Haar;Rusty Krab;95
+Koolmees, Wouter;Binnenhof;95
+Koolmees, Wouter;Cafe Seven;49
+Koolmees, Wouter;De Transparante Broker;52
+Koolmees, Wouter;De Transparante Detective;10
+Koolmees, Wouter;Euromast;76
+Koolmees, Wouter;Kasteel de Haar;63
+Koolmees, Wouter;Koolmees, Wouter;0
+Koolmees, Wouter;NIXZ;12
+Koolmees, Wouter;Pakjesboot 12;72
+Koolmees, Wouter;Peter Jansen, Jan;14
+Koolmees, Wouter;Pizzaria Tricolore;86
+Koolmees, Wouter;Ponypark Slagharen;77
+Koolmees, Wouter;Rusty Krab;75
+NIXZ;Binnenhof;71
+NIXZ;Cafe Seven;95
+NIXZ;De Transparante Broker;30
+NIXZ;De Transparante Detective;21
+NIXZ;Euromast;83
+NIXZ;Kasteel de Haar;43
+NIXZ;Koolmees, Wouter;12
+NIXZ;NIXZ;0
+NIXZ;Pakjesboot 12;65
+NIXZ;Peter Jansen, Jan;21
+NIXZ;Pizzaria Tricolore;47
+NIXZ;Ponypark Slagharen;28
+NIXZ;Rusty Krab;26
+Pakjesboot 12;Binnenhof;20
+Pakjesboot 12;Cafe Seven;76
+Pakjesboot 12;De Transparante Broker;41
+Pakjesboot 12;De Transparante Detective;67
+Pakjesboot 12;Euromast;33
+Pakjesboot 12;Kasteel de Haar;72
+Pakjesboot 12;Koolmees, Wouter;72
+Pakjesboot 12;NIXZ;65
+Pakjesboot 12;Pakjesboot 12;0
+Pakjesboot 12;Peter Jansen, Jan;78
+Pakjesboot 12;Pizzaria Tricolore;57
+Pakjesboot 12;Ponypark Slagharen;50
+Pakjesboot 12;Rusty Krab;97
+Peter Jansen, Jan;Binnenhof;52
+Peter Jansen, Jan;Cafe Seven;62
+Peter Jansen, Jan;De Transparante Broker;16
+Peter Jansen, Jan;De Transparante Detective;44
+Peter Jansen, Jan;Euromast;81
+Peter Jansen, Jan;Kasteel de Haar;53
+Peter Jansen, Jan;Koolmees, Wouter;14
+Peter Jansen, Jan;NIXZ;21
+Peter Jansen, Jan;Pakjesboot 12;78
+Peter Jansen, Jan;Peter Jansen, Jan;0
+Peter Jansen, Jan;Pizzaria Tricolore;58
+Peter Jansen, Jan;Ponypark Slagharen;44
+Peter Jansen, Jan;Rusty Krab;23
+Pizzaria Tricolore;Binnenhof;14
+Pizzaria Tricolore;Cafe Seven;53
+Pizzaria Tricolore;De Transparante Broker;99
+Pizzaria Tricolore;De Transparante Detective;50
+Pizzaria Tricolore;Euromast;75
+Pizzaria Tricolore;Kasteel de Haar;92
+Pizzaria Tricolore;Koolmees, Wouter;86
+Pizzaria Tricolore;NIXZ;47
+Pizzaria Tricolore;Pakjesboot 12;57
+Pizzaria Tricolore;Peter Jansen, Jan;58
+Pizzaria Tricolore;Pizzaria Tricolore;0
+Pizzaria Tricolore;Ponypark Slagharen;82
+Pizzaria Tricolore;Rusty Krab;65
+Ponypark Slagharen;Binnenhof;60
+Ponypark Slagharen;Cafe Seven;70
+Ponypark Slagharen;De Transparante Broker;53
+Ponypark Slagharen;De Transparante Detective;58
+Ponypark Slagharen;Euromast;11
+Ponypark Slagharen;Kasteel de Haar;92
+Ponypark Slagharen;Koolmees, Wouter;77
+Ponypark Slagharen;NIXZ;28
+Ponypark Slagharen;Pakjesboot 12;50
+Ponypark Slagharen;Peter Jansen, Jan;44
+Ponypark Slagharen;Pizzaria Tricolore;82
+Ponypark Slagharen;Ponypark Slagharen;0
+Ponypark Slagharen;Rusty Krab;91
+Rusty Krab;Binnenhof;91
+Rusty Krab;Cafe Seven;14
+Rusty Krab;De Transparante Broker;81
+Rusty Krab;De Transparante Detective;18
+Rusty Krab;Euromast;78
+Rusty Krab;Kasteel de Haar;95
+Rusty Krab;Koolmees, Wouter;75
+Rusty Krab;NIXZ;26
+Rusty Krab;Pakjesboot 12;97
+Rusty Krab;Peter Jansen, Jan;23
+Rusty Krab;Pizzaria Tricolore;65
+Rusty Krab;Ponypark Slagharen;91
+Rusty Krab;Rusty Krab;0

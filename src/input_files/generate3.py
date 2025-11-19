@@ -20,6 +20,7 @@ names = [
 
 d = {}
 def populate_dist_matrix():
+    rand = random.Random(123)
     for name in names:
         if name not in d:
             d[name] = {}
@@ -31,16 +32,16 @@ def populate_dist_matrix():
                 d[name2][name] = 0
                 continue
             if name2 not in d[name]:
-                r = random.randint(10, 100)
+                r = rand.randint(10, 100)
                 d[name][name2] = r
                 d[name2][name] = r
-    lines = ["from/to;" + ";".join(sorted(d.keys()))]
+    lines = []
     for s, row in sorted(d.items()):
-        line = s
         for t, val in sorted(d[s].items()):
-            line += ";" + str(val)
-        lines.append(line)
-    with open("src/input_files/input3.txt", 'w', newline='') as f:
+            lines.append(f"{s};{t};{val}")
+    with open("src/input_files/locations.txt", 'w', newline='') as f:
+        f.write("\n".join(names))
+    with open("src/input_files/from-to.txt", 'w', newline='') as f:
         f.write("\n".join(lines))
 
 def tsp(visited: list[str]):
