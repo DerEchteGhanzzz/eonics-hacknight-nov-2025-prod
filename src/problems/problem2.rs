@@ -11,12 +11,13 @@ pub fn get_problem() -> String {
             The problem is that we've got this enormous storage, 
             but we don't know how many pizzas we'll be able to make.
             For each pizza in our <a href="//rustykrab.nl/menu">menu</a>, you can get a list of its ingredients by calling /ingredients?pizza=pizzaName. 
-            Our storage can be accessed via <a href="/problem2/input">here</a>. It will return a list of all our ingredients.<br/><br/>
+            Our storage can be accessed via <a href="/problem2/input">here</a>. It will return a list of all our ingredients.<br/>
+            Calculate for each pizza type <u>separately</u> how many can be made with the ingredients in the storage.<br/><br/>
 
-            Calculate for each pizza type <u>separately</u> how many can be made with the ingredients in the storage.
             Send your result as a formatted vector like: `[0, 0, 0, ..]` (use: `format!(\"{{:?}}\", result)` to turn your vector into a string) to /problem2/answer. 
             Each index in the list corresponds with each item on our menu.
             </h2>
+            If you're done, you can go back to <a href="/order-pizza">order a pizza</a>
         </body>
     "#, CSS)
 }

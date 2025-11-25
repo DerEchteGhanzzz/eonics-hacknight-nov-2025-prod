@@ -39,7 +39,7 @@ fn from_to_error() -> String {
                 params:<br/>
                 <b>from</b>: origin<br/>
                 <b>to</b>: destination<br/>
-                check <a href="/locations">this</a> for available locations.
+                check <a href="/problem3/locations">this</a> for available locations.
             </p>
         "#
     )
