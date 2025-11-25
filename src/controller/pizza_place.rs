@@ -67,7 +67,10 @@ pub async fn order_pizza() -> impl Responder {
                 So, it might take a while for you to get your pizza...
                 Actually, you might be able to help me!
                 If you can help me with my 3 problems I'll give you your pizza for free.<br/>
-                You can find the first problem via <a href="/problem1/definition">/problem1<a>
+                I've got three problems:<br/>
+                <a href="/problem1/definition">Oven Problem<a><br/>
+                <a href="/problem2/definition">Storage Problem<a><br/>
+                <a href="/problem3/definition">Delivery Problem<a><br/>
             </h2>
         </body>
         "#, CSS))

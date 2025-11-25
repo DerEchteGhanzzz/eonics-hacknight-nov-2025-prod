@@ -73,4 +73,6 @@ def read_input():
     return d
     
 if __name__ == "__main__":
-    populate_dist_matrix()
+    
+    with open("src/input_files/locations.txt", 'w', newline='') as f:
+        f.write("\n".join(names))

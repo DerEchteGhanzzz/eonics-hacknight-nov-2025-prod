@@ -20,6 +20,7 @@ pub fn get_problem() -> String {
                 Don't worry about any <a href="https://en.wikipedia.org/wiki/Packing_problems">spacing problems</a>, we are very efficient.</br>  
                 The pizzas we still need to bake can be found in the <a href="/problem1/input">order sheet</a><br/>
             </h2>
+            If you're done, you can go back to <a href="/order-pizza">order a pizza</a>
         </body>
         "#,
         CSS
