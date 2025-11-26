@@ -21,12 +21,13 @@ pub async fn solve(payload: web::Payload) -> impl Responder {
         return HttpResponse::NotAcceptable().body(format!("{:?}", body));
     }
     println!("{:?}", body);
-    if problem2::answer(&format!("{:?}", body.unwrap())) {
+    let ans = format!("{:?}", body.unwrap());
+    if problem2::answer(&ans) {
         return HttpResponse::Ok().body(format!(
-            "Success!"
+            "{ans} is correct!"
         ));
     }
-    HttpResponse::BadRequest().body(format!("{}", wrong_answer()))
+    HttpResponse::BadRequest().body(format!("{} is the wrong Answer, please try again", ans))
 }
 
 #[get("/problem2/answer")]
@@ -42,11 +43,5 @@ pub async fn code() -> impl Responder {
         {}
         </body>
         ", CSS, problem2::get_code().replace("\n", "<br/>"))
-    )
-}
-
-fn wrong_answer() -> String {
-    String::from(
-        "Wrong Answer, please try again"
     )
 }

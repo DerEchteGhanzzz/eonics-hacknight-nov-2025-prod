@@ -51,7 +51,7 @@ pub fn solve() -> u32 {
     let d = locations.iter().map(
         |from| locations.iter().map(|to| get_from_to(from, to).unwrap()).collect::<Vec<_>>()
     ).collect::<Vec<_>>();
-    tsp(vec![0], &d, 0, min_span_tree(&d) * 2)
+    tsp(vec![0], &d, 0, min_span_tree(&d) * 3)
 }
 
 fn min_span_tree(d: &Vec<Vec<u32>>) -> u32 {
@@ -82,7 +82,6 @@ fn min_span_tree(d: &Vec<Vec<u32>>) -> u32 {
 
 fn tsp(visited: Vec<usize>, d: &Vec<Vec<u32>>, current: u32, ub: u32) -> u32 {
     if visited.len() == d.len() {
-        // println!("cur {current}, ub {ub}");
         return current + d[*visited.last().unwrap()][*visited.first().unwrap()];
     }
     let mut best = u32::MAX;
@@ -90,7 +89,6 @@ fn tsp(visited: Vec<usize>, d: &Vec<Vec<u32>>, current: u32, ub: u32) -> u32 {
         return best;
     }
     let mut destinations = d[*visited.last().unwrap()].iter().enumerate().collect::<Vec<_>>();
-    destinations.sort_by(|x, y| x.1.cmp(y.1));
     for (destination, dist) in destinations {
         if visited.contains(&destination) {
             continue;

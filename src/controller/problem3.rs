@@ -27,7 +27,10 @@ pub async fn get_from_to(req: HttpRequest) -> impl Responder {
         return HttpResponse::BadRequest().body(format!(r#"{}{}"#, CSS, from_to_error()));
     }
     let from_to = &request.unwrap();
-    HttpResponse::Ok().body(format!("{:?}", problem3::get_from_to(&from_to.from, &from_to.to)))
+    if let Some(dist) = problem3::get_from_to(&from_to.from, &from_to.to) {
+        return HttpResponse::Ok().body(format!("{:?}", dist));
+    }
+    return HttpResponse::BadRequest().body(format!("{from_to:?} is not a valid edge"));
 }
 
 fn from_to_error() -> String {
@@ -52,12 +55,13 @@ pub async fn solve(payload: web::Payload) -> impl Responder {
         return HttpResponse::NotAcceptable().body(format!("{:?}", body));
     }
     println!("{:?}", body);
-    if problem3::answer(&body.unwrap().to_string()) {
+    let ans = &body.unwrap().to_string();
+    if problem3::answer(ans) {
         return HttpResponse::Ok().body(format!(
-            "Success!"
+            "{ans} is correct!"
         ));
     }
-    HttpResponse::BadRequest().body(format!("{}", wrong_answer()))
+    HttpResponse::BadRequest().body(format!("{} is the wrong Answer, please try again", ans))
 }
 
 #[get("/problem3/answer")]
@@ -73,11 +77,5 @@ pub async fn code() -> impl Responder {
         {}
         </body>
         ", CSS, problem3::get_code().replace("\n", "<br/>"))
-    )
-}
-
-fn wrong_answer() -> String {
-    String::from(
-        "Wrong Answer: That's not going to cut it."
     )
 }

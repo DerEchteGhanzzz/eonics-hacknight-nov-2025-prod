@@ -1,16 +1,16 @@
-use crate::problems;
+use crate::problems::problem1;
 use actix_web::{get, post, web, HttpResponse, Responder};
 use crate::controller::css::CSS;
 use crate::controller::receiver;
 
 #[get("/problem1/definition")]
 pub async fn get_problem() -> impl Responder {
-    HttpResponse::Ok().body(format!("{}", problems::problem1::get_problem()))
+    HttpResponse::Ok().body(format!("{}", problem1::get_problem()))
 }
 
 #[get("/problem1/input")]
 pub async fn get_input() -> impl Responder {
-    HttpResponse::Ok().body(format!("{}", problems::problem1::get_input()))
+    HttpResponse::Ok().body(format!("{}", problem1::get_input()))
 }
 
 
@@ -22,17 +22,18 @@ pub async fn solve(payload: web::Payload) -> impl Responder {
         return HttpResponse::NotAcceptable().body(format!("{:?}", body));
     }
     println!("{:?}", body);
-    if problems::problem1::answer(&body.unwrap().to_string()) {
+    let ans = &body.unwrap().to_string();
+    if problem1::answer(ans) {
         return HttpResponse::Ok().body(format!(
-            "Success!"
+            "{ans} is correct!"
         ));
     }
-    HttpResponse::BadRequest().body(format!("{}", wrong_answer()))
+    HttpResponse::BadRequest().body(format!("{} is the wrong Answer, please try again", ans))
 }
 
 #[get("/problem1/answer")]
 pub async fn answer() -> impl Responder {
-    HttpResponse::Ok().body(format!("{}", problems::problem1::solve()))
+    HttpResponse::Ok().body(format!("{}", problem1::solve()))
 }
 
 #[get("/problem1/code")]
@@ -42,12 +43,6 @@ pub async fn code() -> impl Responder {
         <body>
         {}
         </body>
-        ", CSS, problems::problem1::get_code().replace("\n", "<br/>"))
-    )
-}
-
-fn wrong_answer() -> String {
-    String::from(
-        "Wrong Answer, please try again"
+        ", CSS, problem1::get_code().replace("\n", "<br/>"))
     )
 }
